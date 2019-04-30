@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block title %}
+Detail
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col"></div>
+    <div class="col-12 col-xl-8 col-md-4">
+        <div class="card" style="width: 18rem;">
+            <div class="card-body">
+                <h5 class="card-title">{{object.title}}</h5>
+                <p class="card-text">{{object.content}}</p>
+                <a href="{% url 'bapp:update' object.id %}" class="btn btn-primary">수정</a>
+                <a href="{% url 'bapp:delete' object.id %}" class="btn btn-primary">삭제</a>
+            </div>
+        </div>
+    </div>
+    <div class="col"></div>
+</div>
+{% endblock %}

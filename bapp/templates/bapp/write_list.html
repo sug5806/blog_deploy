@@ -1,0 +1,36 @@
+{% extends 'base.html' %}
+
+{% block title %}
+blog list
+{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col"></div>
+    <div class="col-12 col-xl-6 col-md-4">
+        <table class="table">
+            <thead class="thead-dark">
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">title</th>
+                <th scope="col">Update</th>
+                <th scope="col">Delete</th>
+                <th scope="col">Created</th>
+            </tr>
+            </thead>
+            <tbody>
+            {% for object in object_list %}
+            <tr>
+                <td>{{object.id}}</td>
+                <td><a href="{% url 'bapp:detail' object.id %}">{{object.title}}</a></td>
+                <td><a href="{% url 'bapp:update' object.id %}" class="btn btn-outline-info">U</a></td>
+                <td><a href="{% url 'bapp:delete' object.id %}" class="btn btn-outline-danger">D</a></td>
+                <td>{{object.created}}</td>
+            </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <div class="col"></div>
+</div>
+{% endblock %}
